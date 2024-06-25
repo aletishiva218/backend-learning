@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rebeccapurple;
+    height: 100vh;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            border-radius: 0.5rem;
+    box-shadow: 0 0 2px black;
+    background-color: #a041ff;
+    padding: 1rem;
+    row-gap: 1rem;
+        }
+        form label{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            column-gap: 1rem;
+        }
+        form label input{
+            padding: 0.5rem;
+            border: none;
+    background-color: rebeccapurple;
+    border-radius: 0.3rem;
+        }
+        form .form-buttons{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+    row-gap: 0.5rem;
+    column-gap: 0.5rem;
+        }
+        input[type="submit"]{
+            border: none;
+            padding: 0.5rem;
+            background-color: #ae5efe;
+            box-shadow: 0 0 2px black;
+    border-radius: 0.2rem
+        }
+        form .data{
+            max-width: 500px;
+            border: 2px solid rebeccapurple;
+            padding: 0.5rem;
+            border-radius:0.5rem ;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST">
+        <div class="data">
+        <%    if(locals.data) {%>
+            <%= data %>
+            <%}%>
+        </div>
+        <label for="id"><span>Secret ID:</span><input type="number" id="id" name="id"></label>
+        <label for="secret"><span>Secret:</span><input type="text" id="secret" name="secret"></label>
+        <label for="score"><span>Secret Score:</span><input type="number" id="score" name="score"></label>
+        <div class="form-buttons">
+            <input type="submit" value="GET" formaction="/get-secret">
+            <input type="submit" value="POST" formaction="/post-secret">
+            <input type="submit" value="PUT" formaction="/put-secret">
+            <input type="submit" value="PATCH" formaction="/patch-secret">
+            <input type="submit" value="DELETE" formaction="/delete-secret">
+        </div>
+    </form>
+</body>
+</html>

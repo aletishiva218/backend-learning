@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        a{
+            text-decoration: none;
+            color: initial;
+            padding: 0.5rem 1rem;
+    border:2px solid #2f3542;
+    
+    border-radius: 2rem;
+    scale: 1;
+    display: inline-block;
+    transition: scale 0.3s;
+        }
+        a:hover{
+            scale: 1.1;
+        }
+        ul{
+            list-style-type: none;
+            display: flex;
+    justify-content: right;
+    column-gap: 1rem;
+    padding: 1rem;
+        }
+        body{
+            background-color: #f1f2f6;
+        }
+        header{
+            border-bottom: 2px solid #dfe4ea;
+        }
+        main{
+            background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 0;
+    transform: translateY(-50%);
+        }
+        .welcome-container{
+            display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+        }
+        .welcome-container a{
+            margin: 0.5rem
+        }
+       
+        .welcome-container span{
+            color: #747d8c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/register">Register</a></li>
+            <li><a href="/login">Login</a></li>
+        </ul>
+    </header>
+    <main>
+        <div class="welcome-container">
+            <h2>Welcome</h2>
+            <span>Securely manage your account with us</span>
+            <div><a href="/register">Register</a><a href="/login">Login</a></div>
+        </div>
+    </main>
+</body>
+</html>

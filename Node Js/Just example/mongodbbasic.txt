@@ -1,0 +1,10 @@
+const {MongoClient}=require('mongodb');
+const client= new MongoClient("mongodb://0.0.0.0");
+let getData=async ()=>{
+    let result=await client.connect();
+    let db=result.db("my-data");
+    let collection=db.collection("employee");
+    let response= await collection.find({}).toArray();
+    console.log(response)
+}
+getData()

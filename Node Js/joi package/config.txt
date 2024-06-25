@@ -1,0 +1,15 @@
+npm install @hapi/joi
+
+//Some example code
+
+import joi from "@hapi/joi";
+
+const schema = {
+    user:joi.object({
+        name: joi.string().min(2).max(100).required(),
+        email: joi.string().email().required(),
+        // gender: joi.string().valid("M","F","O").required()
+        // password: joi.string().pattern(new RegExp("pattern")).required(),
+        // phone: joi.string().min(1000000000).message("Invalid mobile number").max(9999999999).message("Invalid mobile number").required()
+    })
+}

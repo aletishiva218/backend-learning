@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .f-ul{
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+    }
+    </style>
+</head>
+<body>
+    <h1>Your Data</h1>
+    <ol class="f-ul">
+        <% Array.from(data).forEach((e)=>{ %>
+            <li>
+                <ul> 
+                    <li> <%= e.name %> </li>
+                    <li> <%= e._id %> </li>
+                    <li> <%= e.department %> </li>
+                </ul>
+            </li>
+            <% })%>
+        </ol>
+</body>
+</html>

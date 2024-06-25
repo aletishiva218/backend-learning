@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        a{
+            text-decoration: none;
+            color: initial;
+            padding: 0.5rem 1rem;
+    border:2px solid #2f3542;
+    
+    border-radius: 2rem;
+    scale: 1;
+    display: inline-block;
+    transition: scale 0.3s;
+        }
+        a:hover{
+            scale: 1.1;
+        }
+        ul{
+            list-style-type: none;
+            display: flex;
+    justify-content: right;
+    column-gap: 1rem;
+    padding: 1rem;
+        }
+        body{
+            background-color: #f1f2f6;
+        }
+        header{
+            border-bottom: 2px solid #dfe4ea;
+        }
+        main{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 0;
+    transform: translateY(-50%);
+        }
+        .welcome-container{
+            display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+    background-color: white;
+            padding: 1rem;
+            box-shadow: 0 0 10px #0000004f;
+            border-radius: 1rem;
+        }
+        .welcome-container h2{
+            border-bottom: 2px solid #ced6e0;
+    padding-bottom: 0.5rem;
+    color: #30336b;
+        }
+        .welcome-container a{
+            margin: 0.5rem
+        }
+       
+        .welcome-container span{
+            color: #747d8c;
+        }
+        form{
+            display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    row-gap: 0.5rem;
+        }
+        form label{
+            display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 0.5rem;
+        }
+        form label input{
+            background-color: #dfe4ea;
+            padding: 0.5rem;
+    border: none;
+    border-radius: 0.5rem;
+        }
+        form button{
+            width: fit-content;
+    align-self: center;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border: none;
+    background-color: #5352ed;
+    color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px #0000004f;
+        }
+        .welcome-container .error{
+            color: red;
+    font-size: 0.8rem;
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+    justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/login">Login</a></li>
+        </ul>
+    </header>
+    <main>
+        <div class="welcome-container">
+            <h2>Register</h2>
+            <form action="/register" method="POST">
+                <label for="email"><span>Email:</span><input type="email" name="email" required></label>
+                <label for="password"><span>Password:</span><input type="password" name="password" required></label>
+                <% if(locals.userExistError){ %>
+                <span class="error"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                    <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                  </svg> <%= userExistError.error %></span>
+                  <%} %>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

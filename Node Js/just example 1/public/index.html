@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            
+        }
+        form input{
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello I am from Index Page</h1>
+    <a href="data">Go to data</a>
+    <form action="senddata" method="GET">
+       <label for="name">Name: <input type="text" id="name" name="name"></label>
+       <input type="submit" value="Insert Data">
+    </form>
+    <form action="deletedata" method="GET">
+        <label for="id">Id: <input type="text" id="id" name="id"></label>
+        <input type="submit" value="Delete Data">
+     </form>
+     <form action="updatedata" method="GET">
+        <label for="id">Id: <input type="text" id="id" name="id"></label>
+        <label for="name">Field Name: <input type="text" id="name" name="name"></label>
+        <label for="value">Field Value: <input type="text" id="value" name="value"></label>
+        <input type="submit" value="Update Data">
+     </form>
+</body>
+</html>

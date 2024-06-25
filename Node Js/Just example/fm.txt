@@ -1,0 +1,41 @@
+// const operation=process.argv[2]
+// const fs=require("fs")
+// const path=require("path")
+// const dirPath=path.join(__dirname,"files")
+
+// if(operation=="create")
+// {
+//     let filename=process.argv[3]
+//     let filedata=process.argv[4]
+//     fs.writeFileSync(dirPath+"/"+filename,filedata)
+//     console.log(`File Created\n:name: ${filename}\ndata: ${filedata}`)
+// }else if(operation=="add")
+// {
+//     let filename=process.argv[3]
+//     let filedata=process.argv[4]
+//     fs.appendFile(dirPath+"/"+filename,filedata,(err)=>{
+//         if(!err)
+//             console.log("File Updated")
+//     })
+// }else if(operation=="delete")
+// {
+//     let filename=process.argv[3]
+//     fs.unlinkSync(dirPath+"/"+filename)
+//     console.log(`File Deleted: ${filename}`)
+// }else if(operation=="rename")
+// {
+//     let exisfilename=process.argv[3]
+//     let newfilename=process.argv[4]
+//     fs.rename(dirPath+"/"+exisfilename,dirPath+"/"+newfilename,(err)=>{
+//         if(!err)
+//             console.log("File renamed")
+//     })
+// }else if(operation=="read")
+// {
+//     let filename=process.argv[3]
+//     fs.readFile(dirPath+"/"+filename,"utf8",(err,data)=>{
+//         if(!err)
+//             console.log("File Data: "+data)
+//     })
+// }else
+//     console.log("Invalid File Operation")

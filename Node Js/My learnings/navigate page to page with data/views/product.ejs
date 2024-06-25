@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+        *{
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #ffe7de;
+        }
+        form{
+            padding: 1rem;
+        display: flex;
+        column-gap: 1rem;
+            flex-wrap: wrap;
+            row-gap: 1rem;
+        }
+        .product{
+            display: flex;
+            flex-direction: column;
+            background-color: #ffcdba;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            row-gap: 0.5rem;
+            text-align: center;
+        }
+        .product img{
+            object-fit: contain;
+            object-position: center;
+        }
+        .product button{
+            background-color: orangered;
+            border: none;
+            color: white;
+            padding: 0.5rem;
+            width: fit-content;
+            align-self: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Product</h1>
+    <% if(locals.productData){ %>
+            <div class="product">
+                <img src="<%= productData.imgURL %>" alt="<%= productData.name %>" height="100">
+                <h3><%= productData.name %> </h3>
+                <span><%= productData.specifications %></span>
+            </div>
+       <%}%>
+</body>
+</html>

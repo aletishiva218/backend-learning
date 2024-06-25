@@ -1,0 +1,19 @@
+{
+  "name": "simple-modules---day-4",
+  "version": "1.0.0",
+  "description": "This is day 4",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "shiva",
+    "aleti"
+  ],
+  "author": "shiva aleti",
+  "license": "ISC",
+  "dependencies": {
+    "color": "^4.2.3",
+    "colour": "^0.7.1"
+  }
+}

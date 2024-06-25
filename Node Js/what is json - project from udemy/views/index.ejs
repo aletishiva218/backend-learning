@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        body{
+            background-color: #ddddfd;
+            display: flex;
+            flex-direction: column;
+        }
+        form{
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 1rem;
+            border: 2px solid #b9b9f8;
+    padding: 1rem 0;
+    border-left: none;
+    border-right: none;
+    
+        }
+        form button{
+            background-color:#5a5ae0;
+            color:white;
+            border: none;
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.2rem;
+            transition: transform 0.1s;
+        }
+        form button:hover{
+            transform: scale(1.3);
+        }
+        .m-auto{
+            align-self: center;
+            text-align: center;
+            margin-top: 4rem;
+            background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px #0000004a;
+        }
+        .m-auto ul li{
+            list-style-type: none;
+        }
+        .m-auto h2,.m-auto h3{
+            color: #5a5ae0;
+        }
+        .m-auto h2{
+            border-bottom: 2px solid #5a5ae0;
+        }
+        .m-auto h3{
+            margin-top: 0.5rem;
+        }
+        .m-auto ul{
+            color: #2c3e50;
+        }
+        .m-auto img{
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <form action="/recipe" method="post">
+        <button type="submit" value="chicken" name="choice">Chicken</button>
+        <button type="submit" value="fish" name="choice">Fish</button>
+        <button type="submit" value="beef" name="choice">Beef</button>
+    </form>
+    <div class="m-auto">
+        <% if(locals.data){ %>
+            <% if(data.name=="Fish Taco"){ %>
+                <img src="https://www.twopeasandtheirpod.com/wp-content/uploads/2023/03/Fish-Tacos-0938.jpg" alt="" width="300" height="100">
+                <%}%>
+                <% if(data.name=="Chicken Taco"){ %>
+                    <img src="https://divascancook.com/wp-content/uploads/2022/06/crockot-chicken-tacos-500x500.jpg" alt="" width="300" height="100">
+                    <%}%>
+                    <% if(data.name=="Beef Taco"){ %>
+                        <img src="https://i0.wp.com/www.onceuponachef.com/images/2023/08/Beef-Tacos.jpg?resize=760%2C570&ssl=1" alt="" width="300" height="100">
+                        <%}%>
+            <h2> <%= data.name %> </h2>
+            <div>
+                <h3>Ingredients </h3>
+                <ul> 
+                    <li><%= data.ingredients.protein.name %> and <%= data.ingredients.protein.preparation %></li>
+                    <li><%= data.ingredients.salsa.name %> and <%= data.ingredients.salsa.spiciness %></li>
+                    <li><%= data.ingredients.toppings[0].quantity %> of <%= data.ingredients.toppings[0].name %></li>
+                    <li><%= data.ingredients.toppings[1].quantity %> of <%= data.ingredients.toppings[1].name %></li>
+                    <li><%= data.ingredients.toppings[2].quantity %> of <%= data.ingredients.toppings[2].name %></li>
+                </ul>
+            </div>
+        <% } else {%>
+        <p>Select your favourite dish</p>
+        <% } %>
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="f">
+        <input type="text" name="name" placeholder="enter your name">
+        <input type="text" name="message">
+    </form>
+    <button onclick="sendMessage()">Send</button>
+    <p id="messages"></p>
+    <script src="/socket.io/socket.io.js"></script>
+<script>
+
+    const socket = io();
+    const sendMessage= () => {
+        const message = f.message.value;
+        const name = f.name.value;
+        socket.emit("user-message",name+"- "+message)
+    } 
+
+    socket.on("message",(message)=>{
+        const p =document.createElement("p")
+        p.innerHTML = message;
+        document.getElementById("messages").appendChild(p)
+    })
+</script>
+</body>
+</html>

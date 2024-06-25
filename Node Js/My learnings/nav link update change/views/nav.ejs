@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <% if(!locals.homepage) {%>
+                <li><a href="/">Home</a></li>
+                <%}%>
+            <% if(!locals.signuppage && !locals.userspage) {%>
+                <li><a href="/signup">Sign Up</a></li>
+                <%}%>
+            <% if(!locals.loginpage && !locals.userspage) {%>
+                <li><a href="/login">Login</a></li>
+                <%}%>
+                <% if(!locals.productspage) {%>
+                    <li><a href="/products">Products</a></li>
+                    <%}%>
+        </ul>
+    </nav>
+</body>
+</html>

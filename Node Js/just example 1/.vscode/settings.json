@@ -1,0 +1,20 @@
+{
+    "editor.fontLigatures": false,
+    "editor.fontVariations": false,
+    "terminal.integrated.fontWeight": "normal",
+    "terminal.integrated.fontWeightBold": "bold",
+    "terminal.integrated.lineHeight": 1,
+    "terminal.integrated.localEchoStyle": "dim",
+    "terminal.integrated.customGlyphs": true,
+    "editor.fontFamily": "Sans-Serif, 'Courier New', monospace",
+    "editor.fontSize": 14,
+    "editor.experimentalWhitespaceRendering": "svg",
+    "editor.mouseWheelZoom": true,
+    "editor.tokenColorCustomizations": {},
+    "screencastMode.fontSize": 56,
+    "debug.console.fontFamily": "default",
+    "css.lint.fontFaceProperties": "warning",
+    "markdown.preview.fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif",
+    "markdown.preview.lineHeight": 1.6,
+    "markdown.preview.fontSize": 14
+}

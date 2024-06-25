@@ -1,0 +1,78 @@
+const exp = require("constants")
+const mongoose = require("mongoose")
+mongoose.connect("mongodb://0.0.0.0/my-data")
+let employeeSchema =new mongoose.Schema({
+    name:String,
+    age: Number,
+    department: String
+})
+
+let readdata = async () => {
+    let employeeModel = mongoose.model("employee",employeeSchema)
+    let data = await employeeModel.find({})
+    return data;
+}
+
+let saveData = async (obj) => {
+    let employeeModel = mongoose.model("employee",employeeSchema)
+    let response = await employeeModel.create(obj)
+    return response;
+}
+
+let deleteData = async (id) => {
+    let employeeModel = mongoose.model("employee",employeeSchema)
+    let response = await employeeModel.deleteOne({_id: id})
+    return response;
+}
+
+let updatedata = async (id,obj) => {  
+    let employeeModel = mongoose.model("employee",employeeSchema)
+    let response = await employeeModel.updateOne({_id:id},{$set:obj})
+    return response;
+}
+
+let searchData = async (value) => {
+    let employeeModel = mongoose.model("employee",employeeSchema)
+    let response = await employeeModel.find({
+        "$or": [
+            {"name":{$regex:value}},
+            {"department":{$regex:value}}
+        ]
+    })
+    return response;
+}
+const express = require("express")
+const path = require("path")
+const mainPath = path.join(__dirname,"public")
+const app = express()
+app.use(express.json())
+app.get("/",(_,res)=>{
+    readdata().then((data)=>{
+        res.send(data)
+    })
+})
+app.get("/search/:exp",(req,res)=>{
+    searchData(req.params.exp).then((response)=> {
+        res.send(response)
+    })
+})
+
+app.post("/",(req,res)=>{
+    saveData(req.body).then((response)=>{
+        res.send(response)
+    })
+})
+
+app.delete("/:id",(req,res)=>{
+    deleteData(req.params.id).then((response)=>{
+        res.send(response)
+    })
+})
+
+app.put("/:key",(req,res)=>{
+    updatedata(req.params.key,req.body).then((response)=>{
+        res.send(response)
+    })
+})
+
+app.listen(4000)
